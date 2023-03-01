@@ -1,0 +1,61 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+<?php if ($this->yellow->page->get("helpWithFilter")): ?>
+    <ul class="article-filter">
+        <?php foreach ($this->yellow->page->getPages("help") as $page): ?>
+            <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+        <?php endforeach ?>
+    </ul>
+<?php else: ?>
+    <section class="latest">
+        <h2><?php echo $this->yellow->language->getTextHtml("helpAll") ?></h2>
+        <?php $helps = $this->yellow->content->index()->filter("layout", "help")->sort("published", false) ?>
+        <ul class="article-filter">
+            <?php foreach($helps as $page): ?>
+                <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+            <?php endforeach ?>
+        </ul>
+    </section>
+
+    <section class="latest">
+        <h2><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:Эгея" ?>"><?php echo $this->yellow->language->getTextHtml("tagAegea") ?></a></h2>
+        <?php $helps_aegea = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "Эгея")->sort("published", false)->limit(10) ?>
+        <ul class="article-filter">
+            <?php foreach($helps_aegea as $page): ?>
+                <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+            <?php endforeach ?>
+        </ul>
+    </section>
+
+    <section class="latest">
+        <h2><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:OBS Studio" ?>"><?php echo $this->yellow->language->getTextHtml("tagOBS") ?></a></h2>
+        <?php $helps_obs = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "OBS Studio")->sort("published", false)->limit(10) ?>
+        <ul class="article-filter">
+            <?php foreach($helps_obs as $page): ?>
+                <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+            <?php endforeach ?>
+        </ul>
+    </section>
+
+    <section class="latest">
+        <h2><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:Стримы" ?>"><?php echo $this->yellow->language->getTextHtml("tagStream") ?></a></h2>
+        <?php $helps_stream = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "Стримы")->sort("published", false)->limit(10) ?>
+        <ul class="article-filter">
+            <?php foreach($helps_stream as $page): ?>
+                <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+            <?php endforeach ?>
+        </ul>
+    </section>
+
+    <section class="search">
+        <form class="form" action="<?php echo $this->yellow->page->getBase(true)."/search/" ?>" method="post">
+            <input class="form-control" type="text" name="query" value="<?php echo $this->yellow->page->getRequestHtml("query") ?>"<?php echo $this->yellow->page->get("status")=="none" ? " autofocus=\"autofocus\"" : "" ?> />
+            <input type="hidden" name="clean-url" />
+            <span class="form-icon"><i class="las la-search"></i></span>
+        </form>
+    </section>
+<?php endif ?>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

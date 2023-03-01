@@ -1,0 +1,25 @@
+<header class="header">
+    <div class="header-wrapper">
+        <div class="logotype">
+            <?php if ($this->yellow->page->get("blogWithFilter") or $this->yellow->page->get("helpWithFilter") or $this->yellow->page->get("Layout") == "search"): ?>
+                <a href="<?php echo $this->yellow->page->getBase(true)."/" ?>">
+            <?php elseif ($this->yellow->page->get("Layout") == "blog" or $this->yellow->page->get("Layout") == "micro" or $this->yellow->page->get("Layout") == "help"): ?>
+                <a href="../">
+            <?php else: ?>
+                <a href="<?php echo $this->yellow->page->getBase(true)."/" ?>">
+            <?php endif ?>
+                <img src="<?php echo $this->yellow->system->get('coreServerBase').$this->yellow->system->get('coreThemeLocation').'image/avatar.png'; ?>">
+            </a>
+        </div>
+        <div class="description">
+            <?php if ($this->yellow->page->get("blogWithFilter") or $this->yellow->page->get("helpWithFilter") or $this->yellow->page->get("Layout") == "search"): ?>
+                <a class="author" href="<?php echo $this->yellow->page->getBase(true)."/" ?>"><?php echo $this->yellow->page->getHtml("titleContent") ?></a>
+            <?php elseif ($this->yellow->page->get("Layout") == "blog" or $this->yellow->page->get("Layout") == "micro" or $this->yellow->page->get("Layout") == "help"): ?>
+                <a class="author" href="../"><?php echo $this->yellow->page->getHtml("author") ?></a>
+            <?php else: ?>
+                <a class="author" href="<?php echo $this->yellow->page->getBase(true)."/" ?>"><?php echo $this->yellow->page->getHtml("author") ?></a>
+            <?php endif ?>
+        </div>
+        <?php echo $this->yellow->page->getPage("header")->getContent() ?>
+    </div>
+</header>

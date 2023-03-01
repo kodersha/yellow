@@ -1,0 +1,114 @@
+@mobile:                    ~'(max-width: 1024px)';
+@desktop:                   ~'(min-width: 1025px)';
+
+@mobile-medium:             ~'(max-width: 1440px)';
+@desktop-medium:            ~'(min-width: 1441px)';
+
+/*
+@color-background:          rgb(255, 255, 255);
+@color-text:                rgb(0, 0, 0);
+@color-link:                rgb(250, 198, 112);
+@color-hover:               rgb(243, 121, 37);
+@color-mark:                rgb(253, 250, 102);
+@color-tag:                 rgb(114, 114, 125);
+@color-code:                rgb(22, 22, 22);
+@color-line:                rgb(223, 223, 223);
+@color-description:         rgb(213, 202, 175);
+@color-mark-background:     rgb(254, 240, 199);
+@color-mark-text:           rgb(0, 0, 0);
+*/
+
+@color-background:          rgb(13, 13, 13);
+@color-text:                rgb(239, 239, 239);
+@color-title:               rgb(255, 255, 255);
+@color-link:                rgb(250, 198, 112);
+@color-hover:               rgb(243, 121, 37);
+@color-mark:                rgb(253, 250, 102);
+@color-tag:                 rgb(114, 114, 125);
+@color-code:                rgb(22, 22, 24);
+@color-line:                rgb(22, 22, 24);
+@color-description:         rgb(213, 202, 175);
+@color-mark-background:     transparent;
+@color-mark-text:           rgb(253, 250, 102);
+@color-sheet:               rgb(24, 24, 26);
+
+:root {
+    --font-family:              "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --code-font-family:         "Consolas", "Courier New", monospace;
+
+    --title-font-family:        "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --title-font-size:          2.5rem;
+    --title-line-height:        1.1;
+
+    --base-font-size:           1.125rem;
+    --base-line-height:         1.444444;
+
+    --article-font-family:      "PT Sans", system-ui, -apple-system, BlinkMacSystemFont, "SF UI Text", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    --article-font-size:        1.3rem;
+    --article-line-height:      1.45;
+
+    --article-margin-bottom:    1rem;
+    --article-margin-right:     auto;
+    --article-margin-left:      auto;
+    --article-margin-top:       1rem;
+
+    --small-font-size:          0.875rem;
+    --small-line-height:        1.35;
+
+    --medium-font-size:         1.3rem;
+    --medium-line-height:       1.45;
+
+    --color-background:         @color-background;
+    --color-text:               @color-text;
+    --color-title:              @color-title;
+    --color-link:               @color-link;
+    --color-hover:              @color-hover;
+    --color-mark:               @color-mark;
+    --color-tag:                @color-tag;
+    --color-description:        @color-description;
+    --color-line:               @color-line;
+    --color-code:               @color-code;
+    --color-mark-background:    @color-mark-background;
+    --color-mark-text:          @color-mark-text;
+    --color-sheet:              @color-sheet;
+
+    --color-black:              rgb(0, 0, 0);
+    --color-white:              rgb(255, 255, 255);
+
+    --border-radius:            0.25rem;
+    --border-radius-medium:     0.5rem;
+
+    --wrapper:                  50rem;
+    --wrapper-medium:           80rem;
+
+    --avatar-size:              3.125rem;
+
+    --time:                     .2s;
+}
+
+@media @mobile {
+    :root {
+        --article-margin-bottom:    0.75rem;
+        --article-margin-top:       0.75rem;
+
+        --title-font-size:          1.75rem;
+        --title-line-height:        1.1;
+
+        --article-font-size:        1rem;
+        --article-line-height:      1.4;
+
+        --base-font-size:           1rem;
+        --base-line-height:         1.4;
+
+        --medium-font-size:         1.125rem;
+        --medium-line-height:       1.444444;
+
+        --avatar-size:              2.5rem;
+    }
+}
+@media (max-width: 768px) {
+    :root {
+        --article-margin-right:     4%;
+        --article-margin-left:      4%;
+    }
+}

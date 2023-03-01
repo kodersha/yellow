@@ -1,0 +1,17 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+    <ul class="article-filter">
+        <?php foreach ($this->yellow->page->getPages("feed")->paginate($this->yellow->system->get("feedPaginationLimit")) as $page): ?>
+            <?php if ($this->yellow->page->get("feedChronologicalOrder")): ?>
+                <?php $sectionNew = $page->getDateHtml("modified") ?>
+            <?php else: ?>
+                <?php $sectionNew = $page->getDateHtml("published") ?>
+            <?php endif ?>
+            <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a><time datetime="<?php echo $page->getDateFormattedHtml('published', 'Y-m-d H:m') ?>" title="<?php echo $page->getDateFormattedHtml('published', 'd M Y') ?>"><?php echo $page->getDateFormattedHtml('published', 'Y') ?></time></li>
+        <?php endforeach ?>
+    </ul>
+    <?php $this->yellow->layout("pagination", $this->yellow->page->getPages("feed")) ?>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("header") ?>

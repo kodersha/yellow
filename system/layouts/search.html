@@ -1,0 +1,30 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+    <section class="search">
+        <form class="form" action="<?php echo $this->yellow->page->getLocation(true) ?>" method="post">
+            <input class="form-control" type="text" name="query" value="<?php echo $this->yellow->page->getRequestHtml("query") ?>"<?php echo $this->yellow->page->get("status")=="none" ? " autofocus=\"autofocus\"" : "" ?> />
+            <input type="hidden" name="clean-url" />
+            <span class="form-icon"><i class="las la-search"></i></span>
+        </form>
+    </section>
+
+    <section class="latest">
+        <?php if ($this->yellow->page->get("status")=="done"): ?>
+            <ul class="article-filter">
+                <?php foreach ($this->yellow->page->getPages("search")->paginate($this->yellow->system->get("searchPaginationLimit")) as $page): ?>
+                    <li>
+                        <a href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a>
+                        <?php /* echo htmlspecialchars($this->yellow->toolbox->createTextDescription($page->getContent(), $this->yellow->system->get("searchPageLength"))) */ ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        <?php elseif ($this->yellow->page->get("status")=="empty"): ?>
+            <p><?php echo $this->yellow->language->getTextHtml("searchResults".ucfirst($this->yellow->page->get("status"))) ?></p>
+        <?php endif ?>
+    </section>
+    
+    <?php $this->yellow->layout("pagination", $this->yellow->page->getPages("search")) ?>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

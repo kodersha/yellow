@@ -1,0 +1,126 @@
+
+html {
+    background-color: var(--color-background);
+    width: 100vw;
+}
+body {
+    font-feature-settings: "case" 0,"cpsp" 0,"dlig" 0,"frac" 0,"dnom" 0,"numr" 0,"salt" 0,"subs" 0,"sups" 0,"tnum" 0,"zero" 0,"ss01" 0,"ss02" 0,"ss03" 0,"ss04" 0,"cv01" 0,"cv02" 0,"cv03" 0,"cv04" 0,"cv05" 0,"cv06" 0,"cv07" 0,"cv08" 0,"cv09" 0,"cv10" 0,"cv11" 0,"calt","ccmp","kern";
+    font-family: var(--font-family);
+    line-height: 1.5;
+
+    color: var(--color-text);
+
+    margin-bottom: unset;
+    margin-right: unset;
+    margin-left: unset;
+    margin-top: unset;
+
+    padding-bottom: unset;
+    padding-right: unset;
+    padding-left: unset;
+    padding-top: unset;
+
+    min-height: 100vh;
+
+    cursor: default;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+
+    flex-direction: column;
+    display: flex;
+
+    overflow-x: hidden;
+
+    &.browser-safari {
+        .goo {
+            -webkit-filter: none;
+            -moz-filter: none;
+            filter: none;
+    
+            border-radius: var(--border-radius-medium);
+        }
+    }
+}
+::selection {
+    background-color: var(--color-mark);
+    color: var(--color-black);
+
+    -webkit-box-decoration-break: clone;
+    -moz-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-text);
+    text-decoration-skip: ink;
+    text-decoration-thickness: 1.25px;
+    text-underline-offset: 3px;
+
+    -webkit-transition: text-decoration-color .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+    -moz-transition: text-decoration-color .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+    transition: text-decoration-color .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease, opacity .2s ease;
+
+    color: var(--color-text);
+
+    &:visited {
+        color: var(--color-text);
+        text-decoration-color: var(--color-text);
+    }
+    &:hover,
+    &.hover {
+        color: var(--color-hover);
+        text-decoration-color: var(--color-hover);
+
+        -webkit-transition: none;
+        -moz-transition: none;
+        transition: none;
+    }
+
+    outline: none;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.main {
+    position: relative;
+
+    padding-bottom: 3rem;
+    padding-right: unset;
+    padding-left: unset;
+    padding-top: 3rem;
+
+    margin-bottom: unset;
+    margin-top: unset;
+}
+
+.goo {
+    -webkit-filter: url(image/goo.svg#goo);
+    -moz-filter: url(image/goo.svg#goo);
+    filter: url(image/goo.svg#goo);
+}
+.user-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.medium-zoom-overlay {
+    z-index: 100;
+}
+.medium-zoom-image {
+    z-index: 150;
+}
+.medium-zoom-image--hidden {
+    visibility: hidden !important;
+}

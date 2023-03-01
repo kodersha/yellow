@@ -1,0 +1,20 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+        <?php $section = $sectionNew = "" ?>
+
+        <?php foreach ($this->yellow->page->getPages("sitemap")->paginate($this->yellow->system->get("sitemapPaginationLimit")) as $page): ?>
+        <?php $sectionNew = htmlspecialchars(strtoupperu(substru($page->get("title"), 0, 1))) ?>
+
+        <?php if ($page->get("Layout") != "micro" && $page->get("Layout") != "micro-start"): ?>
+            <?php if ($section != $sectionNew) { $section = $sectionNew; echo "</ul></section><section class='latest'><h2>$section</h2><ul class='article-filter'>\n"; } ?>
+            <li><a<?php if ($page->get("PageType") == "Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->getHtml("title") ?></a></li>
+        <?php endif ?>
+        <?php endforeach ?>
+    </ul>
+</section>
+
+<?php $this->yellow->layout("pagination", $this->yellow->page->getPages("sitemap")) ?>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

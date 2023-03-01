@@ -1,0 +1,10 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+    <section class="error">
+        <h1><?php echo $this->yellow->page->getHtml("titleContent") ?></h1>
+        <?php echo $this->yellow->page->getContent() ?>
+    </section>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

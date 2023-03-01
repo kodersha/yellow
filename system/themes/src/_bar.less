@@ -1,0 +1,67 @@
+.yellow-bar {
+    position: relative;
+    z-index: 10;
+    height: 0;
+    top: 0;
+
+    max-width: 100vw;
+    width: 100%;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-right: unset;
+    padding-left: unset;
+
+    & ~ .navigation {
+        margin-top: 2rem;
+    }
+
+    & > div {    
+        max-width: var(--wrapper);
+
+        margin-right: var(--article-margin-right);
+        margin-left: var(--article-margin-left);
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    .yellow-bar-left,
+    .yellow-bar-right {
+        a {
+            text-decoration: none;
+
+            color: var(--color-tag);
+
+            &:hover {
+                color: var(--color-hover);
+            }
+        }
+    }
+}
+.yellow-pane {
+    a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+
+        &:hover {
+            color: rgb(0, 0, 0);
+        }
+    }
+
+    .yellow-content {
+        .yellow-toolbar {
+            .yellow-toolbar-btn,
+            .yellow-toolbar-tooltip {
+                font-size: 0.75rem;
+            }
+        }
+        .yellow-edit-text {
+            font-family: var(--font-family);
+            font-size: 1.125rem;
+            line-height: 1.4;
+        }
+    }
+}

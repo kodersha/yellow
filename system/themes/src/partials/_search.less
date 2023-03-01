@@ -1,0 +1,94 @@
+.search {
+    position: relative;
+
+    padding-bottom: 1.5rem;
+    padding-top: 3rem;
+
+    margin-bottom: unset;
+    margin-top: unset;
+
+    & ~ .latest {
+        padding-top: 1.5rem;
+        margin-top: -1.5rem;
+    }
+
+    .form {
+        position: relative;
+        overflow: hidden;
+
+        max-width: var(--wrapper);
+
+        margin-bottom: unset;
+        margin-right: var(--article-margin-right);
+        margin-left: var(--article-margin-left);
+        margin-top: unset;
+
+        .form-control {
+            position: relative;
+            overflow: hidden;
+    
+            width: 100%;
+    
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+            -webkit-transition: background-color .2s ease;
+            -moz-transition: background-color .2s ease;
+            transition: background-color .2s ease;
+    
+            @media @desktop {
+                padding-bottom: 0.75rem;
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+                padding-top: 0.75rem;
+            }
+            @media @mobile {
+                padding-bottom: 0.5rem;
+                padding-right: 1rem;
+                padding-left: 1rem;
+                padding-top: 0.5rem;
+            }
+    
+            font-family: var(--font-family);
+            font-size: var(--base-font-size);
+            line-height: var(--base-line-height);
+    
+            background-color: var(--color-code);
+            border-radius: var(--border-radius);
+            border: none;
+            color: var(--color-text);
+
+            &:extend(.goo);
+    
+            display: block;
+            outline: none;
+    
+            &::before {
+                content: '&#xf002;';
+            }
+    
+            &:focus, &:active {
+                background-color: lighten(@color-code, 5%);
+            }
+        }
+        .form-icon {
+            position: absolute;
+            bottom: 0;
+            top: 0;
+
+            @media @desktop {
+                right: 1.5rem;
+            }
+            @media @mobile {
+                right: 1rem;
+            }
+
+            align-items: center;
+            display: flex;
+
+            font-size: 1.25rem;
+            color: var(--color-tag);
+        }
+    }
+}

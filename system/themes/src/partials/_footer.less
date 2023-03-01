@@ -1,0 +1,40 @@
+.footer {
+    position: relative;
+
+    margin-bottom: unset;
+    margin-top: auto;
+
+    padding-bottom: 0.875rem;
+    padding-top: unset;
+
+    &:extend(.user-select);
+
+    .footer-wrapper {
+        margin-right: var(--article-margin-right);
+        margin-left: var(--article-margin-left);
+
+        max-width: var(--wrapper);
+
+        p {
+            margin-bottom: unset;
+            margin-top: unset;
+
+            &.engine {
+                font-size: var(--small-font-size);
+                line-height: var(--small-line-height);
+
+                color: var(--color-tag);
+
+                a {
+                    text-decoration-color: fade(@color-tag,  20%);
+                    color: var(--color-tag);
+
+                    &:hover {
+                        text-decoration-color: fade(@color-hover, 20%);
+                        color: var(--color-hover);
+                    }
+                }
+            }
+        }
+    }
+}

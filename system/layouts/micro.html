@@ -1,0 +1,15 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+<main class="main">
+    <article class="micro micro-single">
+        <?php echo $this->yellow->page->getContent() ?>
+        <footer>
+            <time datetime="<?php echo $this->yellow->page->getDateFormattedHtml('published', 'Y-m-d H:m') ?>"><?php echo $this->yellow->page->getDateFormattedHtml('published', 'd M Y H:m') ?></time>
+        </footer>
+    </article>
+    <?php $this->yellow->layout("comments") ?>
+</main>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

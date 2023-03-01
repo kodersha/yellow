@@ -1,0 +1,91 @@
+<?php $this->yellow->layout("header") ?>
+
+<header class="welcome">
+    <div class="welcome-wrapper">
+        <div class="logotype">
+            <span><img src="<?php echo $this->yellow->system->get('coreServerBase').$this->yellow->system->get('coreThemeLocation').'image/avatar.png'; ?>" width="48" height="48"></span>
+        </div>
+        <div class="description">
+            <?php echo $this->yellow->page->getContent() ?>
+        </div>
+    </div>
+</header>
+
+<section class="latest latest-blog">
+    <h2><a href="<?php echo $this->yellow->page->getBase(true)."/all/" ?>"><?php echo $this->yellow->language->getTextHtml("latestBlog") ?></a><a class="feed" href="<?php echo $this->yellow->page->getBase(true)."/all/feed/page:rss.xml" ?>"><?php echo $this->yellow->language->getTextHtml("RSS") ?></a></h2>
+    <?php $blogs = $this->yellow->content->index()->filter("layout", "blog")->sort("published", false)->limit(10) ?>
+    <ul class="article-filter ">
+        <?php foreach($blogs as $page): ?>
+            <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+        <?php endforeach ?>
+    </ul>
+</section>
+
+<?php /*
+<section class="latest latest-microblog">
+    <h2><a href="<?php echo $this->yellow->page->getBase(true)."/m/" ?>"><?php echo $this->yellow->language->getTextHtml("latestMicro") ?></a><a class="feed" href="<?php echo $this->yellow->page->getBase(true)."/m/feed/page:rss.xml" ?>"><?php echo $this->yellow->language->getTextHtml("RSS") ?></a></h2>
+    <?php $micros = $this->yellow->content->index()->filter("layout", "micro")->sort("published", false)->limit(1) ?>
+    <?php foreach($micros as $page): ?>
+        <article class="micro micro-list">
+            <?php echo $page->getContent() ?>
+            <a class="link" href="<?php echo $page->getLocation(true) ?>"></a>
+            <footer>
+                <time datetime="<?php echo $page->getDateFormattedHtml('published', 'Y-m-d H:m') ?>"><?php echo $page->getDateFormattedHtml('published', 'd M Y H:m') ?></time>
+            </footer>
+        </article>
+    <?php endforeach ?>
+</section>
+*/ ?>
+
+<section class="latest latest-help">
+    <h2><a href="<?php echo $this->yellow->page->getBase(true)."/h/" ?>"><?php echo $this->yellow->language->getTextHtml("latestHelp") ?></a><a class="feed" href="<?php echo $this->yellow->page->getBase(true)."/h/feed/page:rss.xml" ?>"><?php echo $this->yellow->language->getTextHtml("RSS") ?></a></h2>
+    <div class="wrapper">    
+        <div class="row">
+            <div class="col-xs-12 col-lg-4">
+                <?php $helps = $this->yellow->content->index()->filter("layout", "help")->sort("published", false)->limit(10) ?>
+                <ul class="article-latest">
+                    <?php foreach($helps as $page): ?>
+                        <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <b><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:Эгея" ?>"><?php echo $this->yellow->language->getTextHtml("tagAegea") ?></a></b>
+                <?php $helps_aegea = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "Эгея")->sort("published", false)->limit(10) ?>
+                <ul class="article-latest">
+                    <?php foreach($helps_aegea as $page): ?>
+                        <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+                    <?php endforeach ?>
+                </ul>
+
+                <b><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:OBS Studio" ?>"><?php echo $this->yellow->language->getTextHtml("tagOBS") ?></a></b>
+                <?php $helps_obs = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "OBS Studio")->sort("published", false)->limit(10) ?>
+                <ul class="article-latest">
+                    <?php foreach($helps_obs as $page): ?>
+                        <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-lg-4">
+                <b><a href="<?php echo $this->yellow->page->getBase(true)."/h/tag:Стримы" ?>"><?php echo $this->yellow->language->getTextHtml("tagStream") ?></a></b>
+                <?php $helps_stream = $this->yellow->content->index()->filter("layout", "help")->filter("tag", "Стримы")->sort("published", false)->limit(10) ?>
+                <ul class="article-latest">
+                    <?php foreach($helps_stream as $page): ?>
+                        <li><a<?php if ($page->get("PageType")=="Archive"): ?> class="archive"<?php endif ?> href="<?php echo $page->getLocation(true) ?>"><?php echo $page->get("title") ?></a></li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="search">
+    <form class="form" action="<?php echo $this->yellow->page->getBase(true)."/search/" ?>" method="post">
+        <input class="form-control" type="text" name="query" value="<?php echo $this->yellow->page->getRequestHtml("query") ?>"<?php echo $this->yellow->page->get("status")=="none" ? " autofocus=\"autofocus\"" : "" ?> />
+        <input type="hidden" name="clean-url" />
+        <span class="form-icon"><i class="las la-search"></i></span>
+    </form>
+</section>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>

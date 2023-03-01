@@ -1,0 +1,18 @@
+<?php $this->yellow->layout("header") ?>
+<?php $this->yellow->layout("head") ?>
+
+<main class="main">
+    <?php foreach ($this->yellow->page->getPages("micro")->paginate($this->yellow->system->get("microPaginationLimit")) as $page): ?>
+        <article class="micro micro-list">
+            <?php echo $page->getContent() ?>
+            <a class="link" href="<?php echo $page->getLocation(true) ?>"></a>
+            <footer>
+                <time datetime="<?php echo $page->getDateFormattedHtml('published', 'Y-m-d H:m') ?>"><?php echo $page->getDateFormattedHtml('published', 'd M Y H:m') ?></time>
+            </footer>
+        </article>
+    <?php endforeach ?>
+    <?php $this->yellow->layout("pagination", $this->yellow->page->getPages("micro")) ?>
+</main>
+
+<?php $this->yellow->layout("foot") ?>
+<?php $this->yellow->layout("footer") ?>
